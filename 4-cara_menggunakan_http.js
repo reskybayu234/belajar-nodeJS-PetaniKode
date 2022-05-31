@@ -72,7 +72,8 @@ const url = require("url");
 http
   .createServer((req, res) => {
     res.writeHead(200, { "Content-Type": "text/html" });
-    var q = url.parse(req.url, true).query.keyword;
-    res.end(q);
+    var q = url.parse(req.url, true).query;
+    // console.log(q);
+    res.end(q.parse);
   })
   .listen(8000);

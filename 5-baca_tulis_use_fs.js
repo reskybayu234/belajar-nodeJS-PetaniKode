@@ -43,7 +43,19 @@ http
 // MEMBUAT FILE DI NODEJS
 // =======================
 
-fs.appendFile("file1.txt", "Resky Bayu Andhika", function (err) {
+// fs.appendFile("file1.txt", "Resky Bayu Andhika", function (err) {
+//   if (err) throw err;
+//   console.log("Saved!");
+// });
+
+// =====================================
+// MEMBUAT FILE DENGAN FUNGSI FS.OPEN()
+// =====================================
+
+fs.open("file1.txt", "w+", function (err, file) {
   if (err) throw err;
-  console.log("Saved!");
+  fs.appendFile("file1.txt", "fs.open()", function (err) {
+    if (err) throw err;
+    console.log("Saved");
+  });
 });
